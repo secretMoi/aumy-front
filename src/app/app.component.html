@@ -1,11 +1,13 @@
-<div #myDiv (mousemove)="mouseMoved($event)" (mousedown)="mouseDown($event)" (mouseup)="isClicked = false"
+<div #myDiv (mousemove)="mouseMoved($event)" (mouseleave)="isClicked = false"
+     (mousedown)="mouseDown($event)" (mouseup)="mouseUp()"
      class="vertical-progress-bar">
-  <div #progressValue class="value" [style.height.px]="height"></div>
+  <div #progressValue class="value" [style.height.%]="heightInPercent"></div>
 
   <img class="icon" src="assets/light-bulb.svg" height="64px" draggable="false" />
 </div>
 
-{{x}} - {{y}}
-{{heightInPercent}}
+<app-light-toggle [state]="isLightOn" (stateChanged)="onStateChanged($event)"
+style="height: 50px"></app-light-toggle>
+<!--<app-switch-button></app-switch-button>-->
 
 <router-outlet></router-outlet>
