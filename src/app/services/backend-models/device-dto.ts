@@ -3,9 +3,10 @@
   name: string;
   address: string;
   icon: string;
-  isOnline: boolean;
+  isOnline: boolean | null;
   isTuyaDevice: boolean;
   tuyaDevice: TuyaDeviceDTO;
+  switch: SwitchDTO;
 }
 
 export enum DeviceTypeDTO {
@@ -17,4 +18,9 @@ export enum DeviceTypeDTO {
 
 export interface TuyaDeviceDTO {
   deviceId: string;
+}
+
+export interface SwitchDTO {
+  state: boolean | null;
+  percentage: number | null;
 }

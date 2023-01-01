@@ -6,7 +6,7 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewC
   styleUrls: ['./light-toggle.component.scss']
 })
 export class LightToggleComponent implements AfterViewInit {
-  @Input() state: boolean = false;
+  @Input() state: boolean | null | undefined = false;
 
   @Output() stateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -15,7 +15,6 @@ export class LightToggleComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.contentHeight = this.toggleLabel?.nativeElement.offsetHeight;
-    console.log(this.contentHeight);
   }
 
   onStateChanged() {

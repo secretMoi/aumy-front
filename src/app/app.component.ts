@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   public x: number = -1;
   public y: number = -1;
-  public heightInPercent: number = 0;
+  // public heightInPercent: number = 0;
   public isClicked: boolean = false;
   public devices: DeviceDTO[] = [];
   public isLightOn: boolean = true;
@@ -31,15 +31,15 @@ export class AppComponent implements OnInit{
     this.deviceService.list().subscribe(
       devices => {
         this.devices = devices;
-        this.switchDimmerServiceService.getDeviceInfo(devices[0].tuyaDevice.deviceId).subscribe(
-          deviceInfo => {
-            if(deviceInfo.state)
-              this.isLightOn = !deviceInfo.state;
-
-            if(deviceInfo.brightness)
-              this.heightInPercent = deviceInfo.brightness;
-          }
-        );
+        // this.switchDimmerServiceService.getDeviceInfo(devices[0].tuyaDevice.deviceId).subscribe(
+        //   deviceInfo => {
+        //     if(deviceInfo.state)
+        //       this.isLightOn = !deviceInfo.state;
+        //
+        //     if(deviceInfo.brightness)
+        //       this.heightInPercent = deviceInfo.brightness;
+        //   }
+        // );
       }
     );
 
@@ -63,28 +63,30 @@ export class AppComponent implements OnInit{
   //   return this.devices.filter(x => x.id == deviceId)[0];
   // }
 
-  mouseMoved($event: MouseEvent) {
+  mouseMoved($event: MouseEvent, device: DeviceDTO) {
     if(!this.isClicked) return;
 
     this.x = $event.clientX - this.myDiv.nativeElement.offsetLeft;
     this.y = $event.clientY - this.myDiv.nativeElement.offsetTop;
 
     let newHeight = this.myDiv.nativeElement.clientHeight - this.y;
-    this.heightInPercent = newHeight / this.myDiv.nativeElement.clientHeight * 100;
+    device.switch.percentage = newHeight / this.myDiv.nativeElement.clientHeight * 100;
 
-    if(this.heightInPercent < 0 || this.heightInPercent > 100) return;
+    // if(device.switch.percentage < 0 || device.switch.percentage > 100) return;
   }
 
-  mouseDown($event: MouseEvent) {
+  mouseDown($event: MouseEvent, device: DeviceDTO) {
     this.isClicked = true;
 
-    this.mouseMoved($event);
+    this.mouseMoved($event, device);
   }
 
-  mouseUp() {
+  mouseUp(device: DeviceDTO) {
     this.isClicked = false;
 
-    this.switchDimmerServiceService.setBrightness(this.devices[0].tuyaDevice.deviceId, this.heightInPercent).subscribe();
+    this.switchDimmerServiceService
+      .setBrightness(device.tuyaDevice.deviceId, device.switch.percentage as number)
+      .subscribe();
   }
 
   onStateChanged(state: boolean) {
