@@ -7,12 +7,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { LightToggleComponent } from './components/light-toggle/light-toggle.component';
 import {FormsModule} from "@angular/forms";
 import { SwitchButtonComponent } from './components/switch-button/switch-button.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightToggleComponent,
-    SwitchButtonComponent
+    SwitchButtonComponent,
+    CardsComponent
   ],
     imports: [
         BrowserModule,
