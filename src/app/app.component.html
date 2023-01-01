@@ -6,8 +6,10 @@
   <img class="icon" src="assets/light-bulb.svg" height="64px" draggable="false" />
 </div>
 
-<app-light-toggle [state]="isLightOn" (stateChanged)="onStateChanged($event)"
-style="height: 50px"></app-light-toggle>
+<div style="height: 80px; width: 150px; margin-top: 3em">
+  <app-light-toggle [state]="isLightOn" (stateChanged)="onStateChanged($event)"></app-light-toggle>
+</div>
+
 <!--<app-switch-button></app-switch-button>-->
 
 <router-outlet></router-outlet>
