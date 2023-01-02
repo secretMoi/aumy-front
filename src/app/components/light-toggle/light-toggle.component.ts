@@ -8,6 +8,10 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewC
 export class LightToggleComponent implements AfterViewInit {
   @Input() state: boolean = false;
 
+  @Output() stateChanged  = new EventEmitter<boolean>();
+
+  @ViewChild('toggleLabel') toggleLabel?: ElementRef;
+
   get internalState(): boolean {
     return !this.state;
   }
@@ -15,9 +19,6 @@ export class LightToggleComponent implements AfterViewInit {
     this.state = !newState;
   }
 
-  @Output() stateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @ViewChild('toggleLabel') toggleLabel?: ElementRef;
   private contentHeight: number | undefined;
 
   ngAfterViewInit() {

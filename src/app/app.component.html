@@ -1,23 +1,11 @@
 <div class="card-container">
-
   <div class="cards" *ngFor="let device of devicesToDisplay()">
-    <h3>{{device.name}}</h3>
 
-    <div #myDiv (mousemove)="mouseMoved($event, device)" (mouseleave)="isClicked = false"
-         (mousedown)="mouseDown($event, device)" (mouseup)="mouseUp(device)"
-         class="vertical-progress-bar">
-      <div #progressValue class="value" [style.height.%]="device.switch.percentage"></div>
+    <app-card-switch-dimmer *ngIf="device.deviceType == deviceType.DimmerSwitch" [device]="device"></app-card-switch-dimmer>
 
-      <img class="icon" src="assets/light-bulb.svg" height="64px" draggable="false"/>
-    </div>
-
-    <div class="app-light-toggle">
-      <app-light-toggle [state]="device.switch.state" (stateChanged)="onStateChanged(device, $event)"></app-light-toggle>
-    </div>
-
+    <app-switch-button *ngIf="device.deviceType == deviceType.Socket || device.deviceType == deviceType.Switch"
+                       style="zoom: 0.7;"></app-switch-button>
   </div>
 </div>
-
-<!--<app-switch-button style="zoom: 0.7 ;"></app-switch-button>-->
 
 <router-outlet></router-outlet>

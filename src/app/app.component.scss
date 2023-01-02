@@ -1,32 +1,4 @@
-.vertical-progress-bar {
-  height: 300px;
-  width: 100px;
-  background: #28272A;
-  border-radius: 20px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  margin-top: 1em;
 
-  .value {
-    height: 200px;
-    width: 100px;
-    background: #F7D167;
-    border-radius: 0 0 18px 18px;
-    position: absolute;
-    bottom: 0;
-  }
-
-  img.icon {
-    position: absolute;
-    bottom: 0;
-    left:0;
-    right:0;
-    margin-left: auto;
-    margin-right: auto;
-    user-select: none;
-  }
-}
 
 .card-container {
   display: flex;
@@ -52,10 +24,11 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   h3 {
     color: #2E3C40;
-    font-size: 1.5em;
+    font-size: 3em;
     font-weight: 600;
     line-height: 1;
     padding: 0.5em;
@@ -64,9 +37,4 @@
     text-align: center;
     border-bottom: 2px solid #28272A;
   }
-}
-
-.app-light-toggle {
-  zoom: 1.5;
-  margin-top: 2em;
 }

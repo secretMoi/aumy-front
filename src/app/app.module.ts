@@ -8,13 +8,15 @@ import { LightToggleComponent } from './components/light-toggle/light-toggle.com
 import {FormsModule} from "@angular/forms";
 import { SwitchButtonComponent } from './components/switch-button/switch-button.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { CardSwitchDimmerComponent } from './components/card-switch-dimmer/card-switch-dimmer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightToggleComponent,
     SwitchButtonComponent,
-    CardsComponent
+    CardsComponent,
+    CardSwitchDimmerComponent
   ],
     imports: [
         BrowserModule,
