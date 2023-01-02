@@ -28,4 +28,7 @@ export interface SwitchDTO {
 
 export interface SocketDTO {
   state: boolean;
+  current: number | null;
+  voltage: number | null;
+  power: number | null;
 }

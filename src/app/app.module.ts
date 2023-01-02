@@ -9,6 +9,8 @@ import {FormsModule} from "@angular/forms";
 import { SwitchButtonComponent } from './components/switch-button/switch-button.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { CardSwitchDimmerComponent } from './components/card-switch-dimmer/card-switch-dimmer.component';
+import { SocketDetailComponent } from './pages/socket-detail/socket-detail.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CardSwitchDimmerComponent } from './components/card-switch-dimmer/card-
     LightToggleComponent,
     SwitchButtonComponent,
     CardsComponent,
-    CardSwitchDimmerComponent
+    CardSwitchDimmerComponent,
+    SocketDetailComponent,
+    DashboardComponent
   ],
     imports: [
         BrowserModule,

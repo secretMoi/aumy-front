@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="cards">
+    <app-switch-button [device]="device" style="zoom: 1.1;"></app-switch-button>
+  </div>
+
+  <div class="cards">
+    <h3>
+      <img class="icon" src="assets/ampere.svg" height="32"> {{ device.socket.current }}<br />
+      <img class="icon" src="assets/volt.svg" height="32"> {{ device.socket.voltage }}<br />
+      <img class="icon" src="assets/power.svg" height="32"> {{ device.socket.power }}
+    </h3>
+  </div>
+</div>

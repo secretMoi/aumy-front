@@ -13,4 +13,8 @@ export class DeviceService {
   public list(): Observable<DeviceDTO[]> {
     return this.http.get<DeviceDTO[]>('http://localhost:5000/device/list');
   }
+
+  public getById(deviceId: string): Observable<DeviceDTO> {
+    return this.http.get<DeviceDTO>(`http://localhost:5000/device/${deviceId}`);
+  }
 }
