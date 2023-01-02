@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {DeviceDTO} from "../../services/backend-models/device-dto";
+import {TuyaSocketService} from "../../services/tuya-socket.service";
 
 @Component({
   selector: 'app-switch-button',
@@ -13,8 +14,12 @@ export class SwitchButtonComponent {
   static ToggleButtonId: number = 0;
   toggleButtonId: number;
 
-  constructor() {
+  constructor(private tuyaSocketService: TuyaSocketService) {
     SwitchButtonComponent.ToggleButtonId++;
     this.toggleButtonId = SwitchButtonComponent.ToggleButtonId
+  }
+
+  onStateChanged() {
+    this.tuyaSocketService.setState(this.device.tuyaDevice.deviceId, this.device.socket.state).subscribe();
   }
 }

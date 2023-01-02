@@ -1,7 +1,7 @@
 <h3>{{ device.name }}</h3>
 
 <div class="toggle">
-  <input [(ngModel)]="device.socket.state" type="checkbox"
+  <input [(ngModel)]="device.socket.state" (change)="onStateChanged()" type="checkbox"
          id="toggle-button-{{toggleButtonId}}" />
   <label for="toggle-button-{{toggleButtonId}}"></label>
 </div>
