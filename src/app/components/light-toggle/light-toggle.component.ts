@@ -6,7 +6,14 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewC
   styleUrls: ['./light-toggle.component.scss']
 })
 export class LightToggleComponent implements AfterViewInit {
-  @Input() state: boolean | null | undefined = false;
+  @Input() state: boolean = false;
+
+  get internalState(): boolean {
+    return !this.state;
+  }
+  set internalState(newState: boolean) {
+    this.state = !newState;
+  }
 
   @Output() stateChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -18,6 +25,6 @@ export class LightToggleComponent implements AfterViewInit {
   }
 
   onStateChanged() {
-    this.stateChanged.emit(!this.state);
+    this.stateChanged.emit(this.state);
   }
 }

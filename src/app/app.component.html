@@ -12,7 +12,7 @@
     </div>
 
     <div class="app-light-toggle">
-      <app-light-toggle [state]="device.switch?.state" (stateChanged)="onStateChanged($event)"></app-light-toggle>
+      <app-light-toggle [state]="device.switch.state" (stateChanged)="onStateChanged(device, $event)"></app-light-toggle>
     </div>
 
   </div>

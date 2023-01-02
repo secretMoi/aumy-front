@@ -21,6 +21,6 @@ export interface TuyaDeviceDTO {
 }
 
 export interface SwitchDTO {
-  state: boolean | null;
+  state: boolean;
   percentage: number | null;
 }

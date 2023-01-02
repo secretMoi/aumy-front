@@ -1,20 +1,3 @@
-//:root {
-//  /** sunny side **/
-//  --blue-background: #C2E9F6;
-//  --blue-border: #72cce3;
-//  --blue-color: #96dcee;
-//  --yellow-background: #fffaa8;
-//  --yellow-border: #f5eb71;
-//  /** dark side **/
-//  --indigo-background: #808fc7;
-//  --indigo-border: #5d6baa;
-//  --indigo-color: #6b7abb;
-//  --gray-border: #e8e8ea;
-//  --gray-dots: #e8e8ea;
-//  /** general **/
-//  --white: #fff;
-//}
-
 .background {
   position: absolute;
   left: 0;
@@ -81,6 +64,7 @@
   transition: all 350ms ease-in;
   cursor: pointer;
   zoom: 0.3;
+  transform: scaleX(-1);
   /** The sun cloud and moon stars **/
   /** Sun/Moon element **/
   /** Gray dots on the moon **/

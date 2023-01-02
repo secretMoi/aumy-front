@@ -14,10 +14,8 @@ export class AppComponent implements OnInit{
 
   public x: number = -1;
   public y: number = -1;
-  // public heightInPercent: number = 0;
   public isClicked: boolean = false;
   public devices: DeviceDTO[] = [];
-  public isLightOn: boolean = true;
 
   @ViewChild('myDiv') myDiv: ElementRef<HTMLDivElement> = {} as any;
   @ViewChild('progressValue') progressValue: ElementRef<HTMLDivElement> = {} as any;
@@ -31,15 +29,6 @@ export class AppComponent implements OnInit{
     this.deviceService.list().subscribe(
       devices => {
         this.devices = devices;
-        // this.switchDimmerServiceService.getDeviceInfo(devices[0].tuyaDevice.deviceId).subscribe(
-        //   deviceInfo => {
-        //     if(deviceInfo.state)
-        //       this.isLightOn = !deviceInfo.state;
-        //
-        //     if(deviceInfo.brightness)
-        //       this.heightInPercent = deviceInfo.brightness;
-        //   }
-        // );
       }
     );
 
@@ -58,10 +47,6 @@ export class AppComponent implements OnInit{
     //   }
     // );
   }
-
-  // private getDeviceById(deviceId: string): TuyaDeviceApiInfo {
-  //   return this.devices.filter(x => x.id == deviceId)[0];
-  // }
 
   mouseMoved($event: MouseEvent, device: DeviceDTO) {
     if(!this.isClicked) return;
@@ -89,8 +74,8 @@ export class AppComponent implements OnInit{
       .subscribe();
   }
 
-  onStateChanged(state: boolean) {
-    // this.switchDimmerServiceService.setState(this.devices[4].id, state).subscribe();
+  onStateChanged(device: DeviceDTO, state: boolean) {
+    this.switchDimmerServiceService.setState(device.tuyaDevice.deviceId, state).subscribe();
   }
 
   devicesToDisplay(): DeviceDTO[] {
