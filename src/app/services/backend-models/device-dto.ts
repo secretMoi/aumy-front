@@ -7,6 +7,7 @@
   isTuyaDevice: boolean;
   tuyaDevice: TuyaDeviceDTO;
   switch: SwitchDTO;
+  socket: SocketDTO;
 }
 
 export enum DeviceTypeDTO {
@@ -23,4 +24,8 @@ export interface TuyaDeviceDTO {
 export interface SwitchDTO {
   state: boolean;
   percentage: number | null;
+}
+
+export interface SocketDTO {
+  state: boolean;
 }

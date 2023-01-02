@@ -1,6 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SwitchDimmerServiceService} from "./services/switch-dimmer-service.service";
-import {LightToggleComponent} from "./components/light-toggle/light-toggle.component";
 import {DeviceDTO, DeviceTypeDTO} from "./services/backend-models/device-dto";
 import {DeviceService} from "./services/device.service";
 
@@ -15,8 +14,6 @@ export class AppComponent implements OnInit{
 
   public deviceType = DeviceTypeDTO;
 
-  @ViewChild('lightToggle') lightToggle: ElementRef<LightToggleComponent> = {} as any;
-
   constructor(private switchDimmerServiceService: SwitchDimmerServiceService,
               private deviceService: DeviceService) {
   }
@@ -30,6 +27,6 @@ export class AppComponent implements OnInit{
   }
 
   devicesToDisplay(): DeviceDTO[] {
-    return this.devices.filter(x => x.deviceType == DeviceTypeDTO.DimmerSwitch);
+    return this.devices.filter(x => x.deviceType == DeviceTypeDTO.DimmerSwitch || x.deviceType == DeviceTypeDTO.Socket);
   }
 }

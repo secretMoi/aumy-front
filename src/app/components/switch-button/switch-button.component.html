@@ -1,4 +1,7 @@
+<h3>{{ device.name }}</h3>
+
 <div class="toggle">
-  <input type="checkbox" id="toggle-button" />
-  <label for="toggle-button"></label>
+  <input [(ngModel)]="device.socket.state" type="checkbox"
+         id="toggle-button-{{toggleButtonId}}" />
+  <label for="toggle-button-{{toggleButtonId}}"></label>
 </div>

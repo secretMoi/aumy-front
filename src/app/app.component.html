@@ -4,7 +4,8 @@
     <app-card-switch-dimmer *ngIf="device.deviceType == deviceType.DimmerSwitch" [device]="device"></app-card-switch-dimmer>
 
     <app-switch-button *ngIf="device.deviceType == deviceType.Socket || device.deviceType == deviceType.Switch"
-                       style="zoom: 0.7;"></app-switch-button>
+                       [device]="device"
+                       style="zoom: 1.1;"></app-switch-button>
   </div>
 </div>
 
