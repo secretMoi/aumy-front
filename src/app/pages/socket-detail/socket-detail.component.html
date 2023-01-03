@@ -5,9 +5,17 @@
 
   <div class="cards">
     <h3>
-      <img class="icon" src="assets/ampere.svg" height="32"> {{ device.socket.current }}<br />
-      <img class="icon" src="assets/volt.svg" height="32"> {{ device.socket.voltage }}<br />
-      <img class="icon" src="assets/power.svg" height="32"> {{ device.socket.power }}
+      <div class="unit-container">
+        <img class="icon" src="assets/volt.svg" height="32"> {{ device.socket.voltage }} V<br/>
+      </div>
+
+      <div class="unit-container">
+        <img class="icon" src="assets/ampere.svg" height="32"> {{ device.socket.current }} A<br/>
+      </div>
+
+      <div class="unit-container">
+        <img class="icon" src="assets/power.svg" height="32"> {{ device.socket.power }} W
+      </div>
     </h3>
   </div>
 </div>
