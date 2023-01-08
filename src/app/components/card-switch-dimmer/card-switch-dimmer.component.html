@@ -1,11 +1,15 @@
-<h3>{{ device.name }}</h3>
+<div class="title-container">
+  <img src="assets/light-bulb.svg" class="title-icon" [ngStyle]="{'color': '#000'}" height="32px"/>
+
+  <h3>{{ device.name }}</h3>
+</div>
 
 <div #myDiv (mousemove)="mouseMoved($event)" (mouseleave)="isClicked = false"
      (mousedown)="mouseDown($event)" (mouseup)="mouseUp()"
      class="vertical-progress-bar">
   <div #progressValue class="value" [style.height.%]="device.switch.percentage"></div>
 
-  <img class="icon" src="assets/light-bulb.svg" height="64px" draggable="false"/>
+  <img class="icon light-bulb-svg" src="assets/light-bulb.svg" height="64px" draggable="false"/>
 </div>
 
 <div class="app-light-toggle">

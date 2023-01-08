@@ -1,8 +1,12 @@
-<h3>
-  <a [routerLink]="['/socket', device.tuyaDevice.deviceId, 'detail']">
-    {{ device.name }}
-  </a>
-</h3>
+<div class="title-container">
+  <img src="assets/socket.svg" class="icon" height="32px"/>
+
+  <h3>
+    <a [routerLink]="['/socket', device.tuyaDevice.deviceId, 'detail']">
+      {{ device.name }}
+    </a>
+  </h3>
+</div>
 
 <div class="toggle">
   <input [(ngModel)]="device.socket.state" (change)="onStateChanged()" type="checkbox"

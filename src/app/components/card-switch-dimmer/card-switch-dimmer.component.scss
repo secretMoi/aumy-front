@@ -45,3 +45,20 @@ h3 {
   text-align: center;
   border-bottom: 2px solid #28272A;
 }
+
+.title-container {
+  position: relative;
+  top: 0;
+
+  .title-icon {
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+.light-bulb-svg {
+  fill: #000;
+}

@@ -1,11 +1,11 @@
 <div class="card-container">
   <div class="cards" *ngFor="let device of devicesToDisplay()">
 
-    <app-card-switch-dimmer *ngIf="device.deviceType == deviceType.DimmerSwitch" [device]="device">
+    <app-card-switch-dimmer style="width: 100%" *ngIf="device.deviceType == deviceType.DimmerSwitch" [device]="device">
     </app-card-switch-dimmer>
 
     <app-switch-button *ngIf="device.deviceType == deviceType.Socket || device.deviceType == deviceType.Switch"
                        [device]="device"
-                       style="zoom: 1.1;"></app-switch-button>
+                       style="zoom: 1.1; width: 100%"></app-switch-button>
   </div>
 </div>
